@@ -1,0 +1,31 @@
+<h2 class="text-center">Digital Currencies</h2>
+
+<table class="table table-bordered table-responsive">
+    <thead>
+    <tr>
+        <th class="text-center">#</th>
+        <th class="text-center">currency</th>
+        <th class="text-center hidden-sm hidden-xs">symbole</th>
+        <th class="text-center">price usd</th>
+        <th class="text-center">price btc</th>
+        <th class="text-center hidden-sm hidden-xs">volume total</th>
+        <th class="text-center hidden-sm hidden-xs">market value</th>
+        <th class="text-center hidden-sm hidden-xs">max supply</th>
+        <th class="text-center hidden-sm hidden-xs">percent_change_24h</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let currency of currencies">
+        <td class="text-center">{{currency.rank}}</td>
+        <td class="text-center">{{currency.name}}</td>
+        <td class="text-center hidden-sm hidden-xs">{{currency.symbol}}</td>
+        <td class="text-center">{{currency.price_usd}}</td>
+        <td class="text-center">{{currency.price_btc}}</td>
+        <td class="text-center hidden-sm hidden-xs">{{currency.total_supply}}</td>
+        <td class="text-center hidden-sm hidden-xs">{{currency.market_cap_usd}}</td>
+        <td class="text-center hidden-sm hidden-xs">{{currency.max_supply}}</td>
+        <td class="text-center hidden-sm hidden-xs">{{currency.percent_change_24h}}</td>
+    </tr>
+    </tbody>
+</table>
+
