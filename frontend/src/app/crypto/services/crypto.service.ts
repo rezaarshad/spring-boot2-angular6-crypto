@@ -2,7 +2,6 @@ import {Subject} from "rxjs/internal/Subject";
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from "@angular/core";
 import {Currencies} from "../models/currencies.model";
-// import {$WebSocket, WebSocketSendMode} from 'angular2-websocket/angular2-websocket';
 
 
 @Injectable()
@@ -12,8 +11,6 @@ export class CryptoService {
     private currencies: Currencies = new Currencies();
 
     private currenciesSubject = new Subject();
-
-    private total: number;
 
     currencyChanged = this.currenciesSubject.asObservable();
 

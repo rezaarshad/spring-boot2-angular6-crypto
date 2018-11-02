@@ -14,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
  * Created by Reza Arshad on 10/02/18.
  */
 @SpringBootApplication
+@ComponentScan(basePackages = "com.crypto")
 public class Application {
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);

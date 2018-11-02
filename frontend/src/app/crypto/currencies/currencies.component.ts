@@ -11,7 +11,7 @@ import {WebSocketService} from "../services/websocket.service";
 })
 export class CurrenciesComponent implements OnInit {
     currencies: Currency[]=[];
-    total: number;
+    lastUpdate: string;
     paid: boolean;
     sub: Subscription;
 
@@ -19,23 +19,20 @@ export class CurrenciesComponent implements OnInit {
 
     }
 
-
     ngOnInit() {
         this.paid = false;
         this.currencies=[];
-        this.loadCurrencies();
+        // this.loadCurrencies();
         // Open connection with server socket
         let stompClient = this.webSocketService.connect();
         stompClient.connect({}, frame => {
 
-            // Subscribe to notification topic
-            stompClient.subscribe('/topics/currency', notifications => {
-
-                // Update notifications attribute with the recent messsage sent from the server
-                this.currencies = JSON.parse(notifications.body);
+            // Subscribe to currency topic
+            stompClient.subscribe('/topics/currency', currencies => {
+                this.currencies = JSON.parse(currencies.body);
+                this.lastUpdate=(new Date()).toLocaleTimeString();
             })
         });
-        // this.cryptoService.connect();
     }
 
     pay() {
