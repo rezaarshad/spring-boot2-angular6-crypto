@@ -22,7 +22,7 @@ export class CurrenciesComponent implements OnInit {
     ngOnInit() {
         this.paid = false;
         this.currencies=[];
-        // this.loadCurrencies();
+        this.loadCurrencies();
         // Open connection with server socket
         let stompClient = this.webSocketService.connect();
         stompClient.connect({}, frame => {
@@ -47,6 +47,7 @@ export class CurrenciesComponent implements OnInit {
             .subscribe(
                 (currencies: any[]) => {
                     this.currencies = currencies;
+                    this.lastUpdate=(new Date()).toLocaleTimeString();
                 },
                 (error) => console.log(error)
             );

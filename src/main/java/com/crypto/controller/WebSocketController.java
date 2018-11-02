@@ -29,23 +29,9 @@ public class WebSocketController {
     @Autowired
     private SimpMessagingTemplate template;
 
-//    @MessageMapping("/currency")
-//    @SendTo("/topics/currency")
-//    @Scheduled(fixedRate = 5000)
-//    public List<Currency> currency() {
-//       return currencyService.getApiCurrencies();
-//    }
-
     @GetMapping("/currency")
-    @Scheduled(fixedRate = 5000)
-    public String getCurrencies() {
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-            template.convertAndSend("/topics/currency",mapper.writeValueAsString(currencyService.getApiCurrencies()) );
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return "successfully sent to Angular !";
+    @Scheduled(fixedRate = 10000)
+    public void getCurrencies() {
+        template.convertAndSend("/topics/currency", currencyService.getApiCurrencies());
     }
 }

@@ -8,7 +8,7 @@ export class WebSocketService {
 
     // Open connection with the back-end socket
     public connect() {
-        let socket = new SockJs("http://localhost:8080" + "/crypto-ws");
+        let socket = new SockJs("http://localhost:8080/crypto-ws");
 
         let stompClient = Stomp.over(socket);
 
