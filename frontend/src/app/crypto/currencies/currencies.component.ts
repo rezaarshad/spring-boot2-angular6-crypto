@@ -16,6 +16,14 @@ export class CurrenciesComponent implements OnInit {
     sub: Subscription;
 
     constructor(private cryptoService: CryptoService, private webSocketService: WebSocketService) {
+
+    }
+
+
+    ngOnInit() {
+        this.paid = false;
+        this.currencies=[];
+        this.loadCurrencies();
         // Open connection with server socket
         let stompClient = this.webSocketService.connect();
         stompClient.connect({}, frame => {
@@ -27,13 +35,6 @@ export class CurrenciesComponent implements OnInit {
                 this.currencies = JSON.parse(notifications.body);
             })
         });
-    }
-
-
-    ngOnInit() {
-        this.paid = false;
-        this.currencies=[];
-        // this.loadCurrencies();
         // this.cryptoService.connect();
     }
 
@@ -45,12 +46,12 @@ export class CurrenciesComponent implements OnInit {
     }
 
     loadCurrencies() {
-        // this.cryptoService.getAllCurrencies()
-        //     .subscribe(
-        //         (currencies: any[]) => {
-        //             this.currencies = currencies;
-        //         },
-        //         (error) => console.log(error)
-        //     );
+        this.cryptoService.getAllCurrencies()
+            .subscribe(
+                (currencies: any[]) => {
+                    this.currencies = currencies;
+                },
+                (error) => console.log(error)
+            );
     }
 }
