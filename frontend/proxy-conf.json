@@ -1,6 +1,11 @@
 {
     "/api": {
-        "target": "http://localhost:8080",
+        "target": "http://localhost:8585",
+        "secure": false,
+        "logLevel": "debug"
+    },
+    "/crypto-ws": {
+        "target": "http://localhost:8585",
         "secure": false,
         "logLevel": "debug"
     }
