@@ -2,7 +2,7 @@ Live cryptocurrency prices and volumes
 ====================
 sample : http://rezaarshad.ir:8081/
 
-A sample application for demonstrating cryptocurrency prices. 
+A sample application for cryptocurrency prices. 
 
 Used technologies:
 
