@@ -1,8 +1,7 @@
 Live cryptocurrency prices and volumes
 ====================
-sample : http://rezaarshad.ir:8081/
 
-A sample application for live cryptocurrency prices. 
+A simple web application for live cryptocurrency prices. 
 
 Used technologies:
 
@@ -10,4 +9,4 @@ Used technologies:
 * spring-websocket 5.0.3
 * Angular 6
 
-Prices is based on https://api.coinmarketcap.com/v1/ticker/
+Prices are based on https://api.coinmarketcap.com/v1/ticker/
